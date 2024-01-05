@@ -17,7 +17,7 @@ obj_01.n = 10;
 // В конструкторе внесено 5, и ожидаем что isEven() даст false
 // однако вмешательство программиста перезаписало n и теперь
 // результат - true
-console.log(obj_01.isEven());
+// console.log(obj_01.isEven());
 
 // Task 02
 // Давайте напишем копию класса Test_00, т.е. создадим класс Test_01 в него скопируем код из Test_00 и заменим public на private.
@@ -36,7 +36,7 @@ class Test_01 {
 const obj_02 = new Test_01(5);
 // теперь попытка изменить n напрямую приведет к ошибке. Убедитесь в этом:
 // obj_02.n = 10;
-console.log(obj_01.isEven());
+// console.log(obj_01.isEven());
 
 // Task 03
 // Создайте класс Test_03, который содержит приватное свойство _taxIndex - массив чисел [0.05, 0.21] и приватное
@@ -63,17 +63,22 @@ class Test_03 {
 
 // Для проверки кода снимите комментарий ниже
 const obj_03 = new Test_03(true, 1000);
-console.log(obj_03.taxSum()); // ожидаю 50
+// console.log(obj_03.taxSum()); // ожидаю 50
 
 // Task 04
 // Итак, мы выяснили зачем нужны private свойства. Давайте закрепим. Private свойства доступны только внутри класса где они объявлены.
 // Проверим. Создайте класс Test_04 содержащий private свойство _n - число равное 200 и метод showN () в котором делается return this._n.
 // Запустите проверку.
 
-// тут пишем класс
+class Test_04 {
+  private _n: number = 200;
+  showN(): number {
+    return this._n;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
-// const obj_04 = new Test_04();
+const obj_04 = new Test_04();
 // console.log(obj_04._n); // приводит к ошибке
 // console.log(obj_04.showN()); // покажет результат
 
@@ -84,9 +89,9 @@ console.log(obj_03.taxSum()); // ожидаю 50
 // тут пишем класс
 
 // class Test_05 extends Test_04 {
-//     showN2 () : number {
-//         return 300 + this._n;
-//     }
+//   showN2(): number {
+//     return 300 + this._n;
+//   }
 // }
 
 // Task 06
@@ -94,10 +99,15 @@ console.log(obj_03.taxSum()); // ожидаю 50
 // так и в наследуемых классах. Создайте класс Test_06 содержащий protected свойство _n - число равное 200 и метод
 // showN () в котором делается return this._n. Запустите проверку.
 
-// тут пишем класс
+class Test_06 {
+  protected _n: number = 200;
+  showN(): number {
+    return this._n;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
-// const obj_06 = new Test_06();
+const obj_06 = new Test_06();
 // console.log(obj_04._n); // приводит к ошибке
 // console.log(obj_06.showN()); // покажет результат
 // как видите здесь в поведении нет различий между private и protected
@@ -105,10 +115,14 @@ console.log(obj_03.taxSum()); // ожидаю 50
 // Task 7.
 // Напишите класс Test_07, наследующийся от Test_06. Класс Test_07  содержит метод showN2, возвращающий this._n.
 
-// тут пишем класс
+class Test_07 extends Test_06 {
+  showN2(): number {
+    return this._n;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
-// const obj_07 = new Test_07();
+const obj_07 = new Test_07();
 // console.log(obj_07._n); // приводит к ошибке
 // console.log(obj_07.showN()); // покажет результат
 // console.log(obj_07.showN2()); // покажет результат
