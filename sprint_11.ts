@@ -264,7 +264,15 @@ class Test_14 {
   }
 }
 
-// тут пишем класс
+class Test_141 extends Test_14 {
+  constructor() {
+    super();
+  }
+  test() {
+    this.rand();
+    return this.n;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
 // const obj_14 = new Test_141();
@@ -274,7 +282,18 @@ class Test_14 {
 // Создайте класс Test_15 содержащий свойства private num1 и protected num2. С помощью конструктора заполните данные числа.
 // Напишите метод isBig() возвращающий большее из двух чисел.
 
-// тут пишем класс
+class Test_15 {
+  private num1: number;
+  protected num2: number;
+  constructor(a: number, b: number) {
+    this.num1 = a;
+    this.num2 = b;
+  }
+
+  isBig(): number {
+    return this.num1 > this.num2 ? this.num1 : this.num2;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
 // const obj_15 = new Test_15(22, 17);
