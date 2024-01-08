@@ -143,7 +143,7 @@ class Test_08 {
     return this._count++;
   }
   showCount(): number {
-    return (this._count = this.step());
+    return this._count;
   }
 }
 
@@ -175,7 +175,18 @@ class Test_09 extends Test_08 {
 // Напишем метод step(), который увеличивает _count на единицу. Напишем метод showCount, который возвращает _count.
 // Напишите в классе конструктор, который задает начальное значение _count из аргумента.
 
-// тут пишем класс
+class Test_10 {
+  protected _count: number;
+  constructor(num: number) {
+    this._count = num;
+  }
+  step(): number {
+    return this._count++;
+  }
+  showCount(): number {
+    return this._count;
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
 // const obj_10 = new Test_10(205);
@@ -187,7 +198,14 @@ class Test_09 extends Test_08 {
 // Task 11
 // Теперь наследуйтесь от Test_10 и создайте класс Test_11. В нем создайте step5() метод, который увеличивает _count на 5.
 
-// тут пишем класс
+class Test_11 extends Test_10 {
+  constructor(num: number) {
+    super(num);
+  }
+  step5(): number {
+    return (this._count += 5);
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
 // const obj_11 = new Test_11(505);
@@ -201,7 +219,15 @@ class Test_09 extends Test_08 {
 // Создайте класс Test_12, содержащий свойство public n число равное нулю. Создайте метод rand, private,
 // который присваивает свойству n случайное число от 0 до 100. Запускайте данный метод в конструкторе.
 
-// тут пишем класс
+class Test_12 {
+  public n: number = 0;
+  constructor() {
+    this.n = this.rand();
+  }
+  private rand(): number {
+    return Math.round(Math.random() * 100);
+  }
+}
 
 // Для проверки кода снимите комментарий ниже
 // const obj_12 = new Test_12();
@@ -214,12 +240,12 @@ class Test_09 extends Test_08 {
 // И получаем ошибку. Изучите ошибку. Закомментируйте класс обратно.
 
 // class Test_13 extends Test_12 {
-//     constructor () {
-//         super();
-//     }
-//     test () : void {
-//         this.rand();
-//     }
+//   constructor() {
+//     super();
+//   }
+//   test(): void {
+//     this.rand();
+//   }
 // }
 
 // Task 14

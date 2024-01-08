@@ -121,7 +121,7 @@ class Test_08 {
         return this._count++;
     }
     showCount() {
-        return (this._count = this.step());
+        return this._count;
     }
 }
 // Для проверки кода снимите комментарий ниже
@@ -146,7 +146,18 @@ class Test_09 extends Test_08 {
 // Давайте теперь проделаем то же, но с protected. Создайте класс Test_10, задайте ему protected свойство _count - число.
 // Напишем метод step(), который увеличивает _count на единицу. Напишем метод showCount, который возвращает _count.
 // Напишите в классе конструктор, который задает начальное значение _count из аргумента.
-// тут пишем класс
+class Test_10 {
+    _count;
+    constructor(num) {
+        this._count = num;
+    }
+    step() {
+        return this._count++;
+    }
+    showCount() {
+        return this._count;
+    }
+}
 // Для проверки кода снимите комментарий ниже
 // const obj_10 = new Test_10(205);
 // obj_10.step();
@@ -155,7 +166,14 @@ class Test_09 extends Test_08 {
 // console.log(obj_10.showCount());
 // Task 11
 // Теперь наследуйтесь от Test_10 и создайте класс Test_11. В нем создайте step5() метод, который увеличивает _count на 5.
-// тут пишем класс
+class Test_11 extends Test_10 {
+    constructor(num) {
+        super(num);
+    }
+    step5() {
+        return (this._count += 5);
+    }
+}
 // Для проверки кода снимите комментарий ниже
 // const obj_11 = new Test_11(505);
 // obj_11.step5();
@@ -166,7 +184,15 @@ class Test_09 extends Test_08 {
 // Task 12
 // Создайте класс Test_12, содержащий свойство public n число равное нулю. Создайте метод rand, private,
 // который присваивает свойству n случайное число от 0 до 100. Запускайте данный метод в конструкторе.
-// тут пишем класс
+class Test_12 {
+    n = 0;
+    constructor() {
+        this.n = this.rand();
+    }
+    rand() {
+        return Math.round(Math.random() * 100);
+    }
+}
 // Для проверки кода снимите комментарий ниже
 // const obj_12 = new Test_12();
 // console.log(obj_12.n);
@@ -176,12 +202,12 @@ class Test_09 extends Test_08 {
 // Снимите комментарий с класса Test_13 - здесь мы в классе наследнике пытаемся обратиться к private методу.
 // И получаем ошибку. Изучите ошибку. Закомментируйте класс обратно.
 // class Test_13 extends Test_12 {
-//     constructor () {
-//         super();
-//     }
-//     test () : void {
-//         this.rand();
-//     }
+//   constructor() {
+//     super();
+//   }
+//   test(): void {
+//     this.rand();
+//   }
 // }
 // Task 14
 // Проделаем то же с protected. Есть класс Test_14. Создайте класс Test_141, который наследуется от класса Test_14.
