@@ -112,7 +112,18 @@ const obj_07 = new Test_07();
 // Теперь давайте поработаем с конструктором. Создайте класс Test_08, задайте ему private свойство _count - число.
 // Напишем метод step(), который увеличивает _count на единицу. Напишем метод showCount, который возвращает _count.
 // Напишите в классе конструктор, который задает начальное значение _count из аргумента.
-// тут пишем класс
+class Test_08 {
+    _count;
+    constructor(num) {
+        this._count = num;
+    }
+    step() {
+        return this._count++;
+    }
+    showCount() {
+        return (this._count = this.step());
+    }
+}
 // Для проверки кода снимите комментарий ниже
 // const obj_08 = new Test_08(11);
 // obj_08.step();
@@ -121,7 +132,11 @@ const obj_07 = new Test_07();
 // console.log(obj_08.showCount());
 // Task 09
 // Создайте класс Test_09 наследник класса Test_08. Запустите код для проверки. Сделайте выводы.
-// тут пишем класс
+class Test_09 extends Test_08 {
+    constructor(num) {
+        super(num);
+    }
+}
 // Для проверки кода снимите комментарий ниже
 // const obj_09 = new Test_09(100);
 // obj_09.step();
